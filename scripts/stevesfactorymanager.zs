@@ -23,7 +23,6 @@ val SignUpdater                         = <StevesFactoryManager:BlockCableSignNa
 
 // gregtech + ic2
 val FullyChargedChargingLapotronCrystal = <IC2:itemBatChargeLamaCrystal:1>.onlyWithTag({charge: 4.0E7});
-//val FullychargedLapotronicEnergyOrb     = <gregtech:gt.metaitem.01:32597>.onlyWithTag({"GT.ItemCharge": 100000000 as long});
 val pumpHV                              = <gregtech:gt.metaitem.01:32612>;
 val pistonHV                            = <gregtech:gt.metaitem.01:32642>;
 val conveyorHV                          = <gregtech:gt.metaitem.01:32632>;
@@ -39,10 +38,13 @@ val hddT3                               = <OpenComputers:item:7>;
 val serverT3                            = <OpenComputers:item:40>;
 val cpuT3                               = <OpenComputers:item:43>;
 val redstoneCard                        = <OpenComputers:item:66>;
+val signUpgrade                         = <OpenComputers:item:35>;
 val serverRack                          = <OpenComputers:serverRack>;
 
-// AE2
+//
 val smartcable                          = <appliedenergistics2:item.ItemMultiPart:56>;
+val scribingtool                        = <Thaumcraft:ItemInkwell>;
+val paper                               = <minecraft:paper>;
 
 
 # Blocks/Items Removal
@@ -140,8 +142,8 @@ recipes.addShaped(RSReceiver, [
 //	[null, null, null],
 //	[null, null, null]]);
 
-//recipes.remove(SignUpdater);
-//recipes.addShaped(SignUpdater, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(SignUpdater);
+recipes.addShaped(SignUpdater, [
+      [paper, scribingtool, paper],
+      [paper, InventoryCable, paper],
+      [paper, signUpgrade, paper]]);
