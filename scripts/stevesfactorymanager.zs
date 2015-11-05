@@ -27,12 +27,18 @@ val FullyChargedChargingLapotronCrystal = <IC2:itemBatChargeLamaCrystal:1>.onlyW
 val pumpHV                              = <gregtech:gt.metaitem.01:32612>;
 val pistonHV                            = <gregtech:gt.metaitem.01:32642>;
 val conveyorHV                          = <gregtech:gt.metaitem.01:32632>;
+val emitterMV                           = <gregtech:gt.metaitem.01:32681>;
+val sensorMV                            = <gregtech:gt.metaitem.01:32691>;
 val sheetRubber                         = <ore:sheetRubber>;
+val plateRedstone                       = <ore:plateRedstone>;
+val circuitGood                         = <ore:circuitGood>;
+val circuitPrimitive                    = <ore:circuitPrimitive>;
 
 // opencomputers
 val hddT3                               = <OpenComputers:item:7>;
 val serverT3                            = <OpenComputers:item:40>;
 val cpuT3                               = <OpenComputers:item:43>;
+val redstoneCard                        = <OpenComputers:item:66>;
 val serverRack                          = <OpenComputers:serverRack>;
 
 // AE2
@@ -43,14 +49,14 @@ val smartcable                          = <appliedenergistics2:item.ItemMultiPar
 
 # Recipe Tweaks
 
-//recipes.remove(SteveManager);
+recipes.remove(SteveManager);
 recipes.addShaped(SteveManager, [
 	[pumpHV, pistonHV, conveyorHV],
 	[hddT3, serverT3, cpuT3],
 	[FullyChargedChargingLapotronCrystal, serverRack, FullyChargedChargingLapotronCrystal]]);
 SteveManager.addTooltip(format.red("fully charged Charging Lapotron Crystal required"));
 
-//recipes.remove(InventoryCable);
+recipes.remove(InventoryCable);
 recipes.addShaped(InventoryCable * 3, [
 	[sheetRubber, pumpHV, sheetRubber],
 	[smartcable, smartcable, smartcable],
@@ -68,11 +74,17 @@ recipes.addShaped(InventoryCable * 3, [
 //	[null, null, null],
 //	[null, null, null]]);
 
-//recipes.remove(RSEmitter);
-//recipes.addShaped(RSEmitter, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(RSEmitter);
+recipes.addShaped(RSEmitter, [
+	[plateRedstone, circuitGood, plateRedstone],
+	[emitterMV, InventoryCable, redstoneCard],
+	[circuitPrimitive, circuitGood, circuitPrimitive]]);
+
+recipes.remove(RSReceiver);
+recipes.addShaped(RSReceiver, [
+	[plateRedstone, circuitGood, plateRedstone],
+	[sensorMV, InventoryCable, redstoneCard],
+	[circuitPrimitive, circuitGood, circuitPrimitive]]);
 
 //recipes.remove(ItemValve);
 //recipes.addShaped(ItemValve, [
