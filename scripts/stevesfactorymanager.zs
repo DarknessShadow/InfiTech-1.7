@@ -20,6 +20,7 @@ val CableCamouflage                     = <StevesFactoryManager:BlockCableCamouf
 val DoubleSidedCableCamouflage          = <StevesFactoryManager:BlockCableCamouflageName:1>;
 val TransCableCamouflage                = <StevesFactoryManager:BlockCableCamouflageName:2>;
 val SignUpdater                         = <StevesFactoryManager:BlockCableSignName>;
+val CreativeSupplier                    = <StevesFactoryManager:BlockCableCreativeName>;
 
 // gregtech + ic2
 val FullyChargedChargingLapotronCrystal = <IC2:itemBatChargeLamaCrystal:1>.onlyWithTag({charge: 4.0E7});
@@ -28,10 +29,19 @@ val pistonHV                            = <gregtech:gt.metaitem.01:32642>;
 val conveyorHV                          = <gregtech:gt.metaitem.01:32632>;
 val emitterMV                           = <gregtech:gt.metaitem.01:32681>;
 val sensorMV                            = <gregtech:gt.metaitem.01:32691>;
+val fieldGeneratorLV                    = <gregtech:gt.metaitem.01:32670>;
 val sheetRubber                         = <ore:sheetRubber>;
 val plateRedstone                       = <ore:plateRedstone>;
-val circuitGood                         = <ore:circuitGood>;
+val plateAluminium                      = <ore:plateAluminium>;
+val plateStainlessSteel                 = <ore:plateStainlessSteel>;
+val screwTungstenSteel                  = <ore:screwTungstenSteel>;
 val circuitPrimitive                    = <ore:circuitPrimitive>;
+val circuitGood                         = <ore:circuitGood>;
+val circuitAdvanced                     = <ore:circuitAdvanced>;
+
+//tools
+var HHammer                             = <ore:craftingToolHardHammer>;
+var screwdriver                         = <ore:craftingToolScrewdriver>;
 
 // opencomputers
 val hddT3                               = <OpenComputers:item:7>;
@@ -43,11 +53,18 @@ val serverRack                          = <OpenComputers:serverRack>;
 
 //
 val smartcable                          = <appliedenergistics2:item.ItemMultiPart:56>;
+val MEannihilationPlane                 = <appliedenergistics2:item.ItemMultiPart:300>;
+val MEformationPlane                    = <appliedenergistics2:item.ItemMultiPart:320>;
 val scribingtool                        = <Thaumcraft:ItemInkwell>;
+val itemGrate                           = <Thaumcraft:blockMetalDevice:5>;
+val vacuumhopper                        = <OpenBlocks:vacuumhopper>;
 val paper                               = <minecraft:paper>;
 
 
 # Blocks/Items Removal
+
+CreativeSupplier.addTooltip(format.red(format.bold("This item is DISABLED!"))); 
+
 
 # Recipe Tweaks
 
@@ -88,17 +105,17 @@ recipes.addShaped(RSReceiver, [
 	[sensorMV, InventoryCable, redstoneCard],
 	[circuitPrimitive, circuitGood, circuitPrimitive]]);
 
-//recipes.remove(ItemValve);
-//recipes.addShaped(ItemValve, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(ItemValve);
+recipes.addShaped(ItemValve, [
+	[plateAluminium, vacuumhopper, plateAluminium],
+	[sensorMV, InventoryCable, emitterMV],
+	[plateAluminium, itemGrate, plateAluminium]]);
 
-//recipes.remove(RapidItemValve);
-//recipes.addShaped(RapidItemValve, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(RapidItemValve);
+recipes.addShaped(RapidItemValve, [
+	[sensorMV, fieldGeneratorLV, sensorMV],
+	[plateStainlessSteel, ItemValve, plateStainlessSteel],
+	[circuitAdvanced, fieldGeneratorLV, circuitAdvanced]]);
 
 //recipes.remove(BlockDetector);
 //recipes.addShaped(BlockDetector, [
@@ -106,11 +123,11 @@ recipes.addShaped(RSReceiver, [
 //	[null, null, null],
 //	[null, null, null]]);
 
-//recipes.remove(BlockGate);
-//recipes.addShaped(BlockGate, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(BlockGate);
+recipes.addShaped(BlockGate, [
+	[screwTungstenSteel, HHammer, screwTungstenSteel],
+	[MEannihilationPlane, InventoryCable, MEformationPlane],
+	[screwTungstenSteel, screwdriver, screwTungstenSteel]]);
 
 //recipes.remove(CableCluster);
 //recipes.addShaped(CableCluster, [
