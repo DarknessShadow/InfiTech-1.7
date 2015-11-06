@@ -30,18 +30,25 @@ val conveyorHV                          = <gregtech:gt.metaitem.01:32632>;
 val emitterMV                           = <gregtech:gt.metaitem.01:32681>;
 val sensorMV                            = <gregtech:gt.metaitem.01:32691>;
 val fieldGeneratorLV                    = <gregtech:gt.metaitem.01:32670>;
+val activityDetector                    = <gregtech:gt.metaitem.01:32731>;
 val sheetRubber                         = <ore:sheetRubber>;
 val plateRedstone                       = <ore:plateRedstone>;
 val plateAluminium                      = <ore:plateAluminium>;
 val plateStainlessSteel                 = <ore:plateStainlessSteel>;
+val plateSteel                          = <ore:plateSteel>;
+val plateEnderPearl                     = <ore:plateEnderPearl>;
+val foilStainlessSteel                  = <ore:foilStainlessSteel>;
+val foilEnderium                        = <ore:foilEnderium>;
 val screwTungstenSteel                  = <ore:screwTungstenSteel>;
 val circuitPrimitive                    = <ore:circuitPrimitive>;
+val circuitBasic                        = <ore:circuitBasic>;
 val circuitGood                         = <ore:circuitGood>;
 val circuitAdvanced                     = <ore:circuitAdvanced>;
 
 //tools
 var HHammer                             = <ore:craftingToolHardHammer>;
 var screwdriver                         = <ore:craftingToolScrewdriver>;
+var wrench                              = <ore:craftingToolWrench>;
 
 // opencomputers
 val hddT3                               = <OpenComputers:item:7>;
@@ -117,11 +124,11 @@ recipes.addShaped(RapidItemValve, [
 	[plateStainlessSteel, ItemValve, plateStainlessSteel],
 	[circuitAdvanced, fieldGeneratorLV, circuitAdvanced]]);
 
-//recipes.remove(BlockDetector);
-//recipes.addShaped(BlockDetector, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(BlockDetector);
+recipes.addShaped(BlockDetector, [
+	[plateSteel, sensorMV, plateSteel],
+	[activityDetector, InventoryCable, activityDetector],
+	[plateSteel, circuitBasic, plateSteel]]);
 
 recipes.remove(BlockGate);
 recipes.addShaped(BlockGate, [
@@ -129,17 +136,17 @@ recipes.addShaped(BlockGate, [
 	[MEannihilationPlane, InventoryCable, MEformationPlane],
 	[screwTungstenSteel, screwdriver, screwTungstenSteel]]);
 
-//recipes.remove(CableCluster);
-//recipes.addShaped(CableCluster, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(CableCluster);
+recipes.addShaped(CableCluster, [
+	[foilStainlessSteel, HHammer, foilStainlessSteel],
+	[plateEnderPearl, InventoryCable, plateEnderPearl],
+	[foilStainlessSteel, wrench, foilStainlessSteel]]);
 
-//recipes.remove(AdvCableCluster);
-//recipes.addShaped(AdvCableCluster, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(AdvCableCluster);
+recipes.addShaped(AdvCableCluster, [
+	[foilEnderium, HHammer, foilEnderium],
+	[fieldGeneratorLV, CableCluster, fieldGeneratorLV],
+	[foilEnderium, wrench, foilEnderium]]);
 
 //recipes.remove(CableCamouflage);
 //recipes.addShaped(CableCamouflage, [
