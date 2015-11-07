@@ -24,15 +24,12 @@ val CreativeSupplier                    = <StevesFactoryManager:BlockCableCreati
 
 // gregtech + ic2
 val FullyChargedChargingLapotronCrystal = <IC2:itemBatChargeLamaCrystal:1>.onlyWithTag({charge: 4.0E7});
-val pumpMV                              = <gregtech:gt.metaitem.01:32611>;
 val pumpHV                              = <gregtech:gt.metaitem.01:32612>;
-val pistonMV                            = <gregtech:gt.metaitem.01:32641>;
 val pistonHV                            = <gregtech:gt.metaitem.01:32642>;
-val conveyorMV                          = <gregtech:gt.metaitem.01:32631>;
 val conveyorHV                          = <gregtech:gt.metaitem.01:32632>;
 val conveyorEV                          = <gregtech:gt.metaitem.01:32633>;
-val emitterMV                           = <gregtech:gt.metaitem.01:32681>;
-val sensorMV                            = <gregtech:gt.metaitem.01:32691>;
+val emitterHV                           = <gregtech:gt.metaitem.01:32682>;
+val sensorHV                            = <gregtech:gt.metaitem.01:32692>;
 val fieldGeneratorLV                    = <gregtech:gt.metaitem.01:32670>;
 val fieldGeneratorHV                    = <gregtech:gt.metaitem.01:32672>;
 val activityDetector                    = <gregtech:gt.metaitem.01:32731>;
@@ -101,14 +98,14 @@ SteveManager.addTooltip(format.red("fully charged Charging Lapotron Crystal requ
 
 recipes.remove(InventoryCable);
 recipes.addShaped(InventoryCable * 3, [
-	[sheetRubber, pumpMV, sheetRubber],
+	[sheetRubber, pumpHV, sheetRubber],
 	[smartcable, smartcable, smartcable],
-	[sheetRubber, conveyorMV, sheetRubber]]);
+	[sheetRubber, conveyorHV, sheetRubber]]);
 
 recipes.remove(InventoryRelay);
 recipes.addShaped(InventoryRelay, [
-        [plateAluminium, pistonMV, plateAluminium],
-        [conveyorMV, InventoryCable, conveyorMV],
+        [plateAluminium, pistonHV, plateAluminium],
+        [conveyorHV, InventoryCable, conveyorHV],
         [plateSilicon, itemDetector, plateSilicon]]);
 
 recipes.remove(AdvInventoryRelay);
@@ -120,30 +117,30 @@ recipes.addShaped(AdvInventoryRelay, [
 recipes.remove(RSEmitter);
 recipes.addShaped(RSEmitter, [
 	[plateRedstone, circuitGood, plateRedstone],
-	[emitterMV, InventoryCable, redstoneCard],
+	[emitterHV, InventoryCable, redstoneCard],
 	[circuitPrimitive, circuitGood, circuitPrimitive]]);
 
 recipes.remove(RSReceiver);
 recipes.addShaped(RSReceiver, [
 	[plateRedstone, circuitGood, plateRedstone],
-	[sensorMV, InventoryCable, redstoneCard],
+	[sensorHV, InventoryCable, redstoneCard],
 	[circuitPrimitive, circuitGood, circuitPrimitive]]);
 
 recipes.remove(ItemValve);
 recipes.addShaped(ItemValve, [
 	[plateAluminium, vacuumhopper, plateAluminium],
-	[sensorMV, InventoryCable, emitterMV],
+	[sensorHV, InventoryCable, emitterHV],
 	[plateAluminium, itemGrate, plateAluminium]]);
 
 recipes.remove(RapidItemValve);
 recipes.addShaped(RapidItemValve, [
-	[sensorMV, fieldGeneratorLV, sensorMV],
+	[sensorHV, fieldGeneratorLV, sensorHV],
 	[plateStainlessSteel, ItemValve, plateStainlessSteel],
 	[circuitAdvanced, fieldGeneratorLV, circuitAdvanced]]);
 
 recipes.remove(BlockDetector);
 recipes.addShaped(BlockDetector, [
-	[plateSteel, sensorMV, plateSteel],
+	[plateSteel, sensorHV, plateSteel],
 	[activityDetector, InventoryCable, activityDetector],
 	[plateSteel, circuitBasic, plateSteel]]);
 
@@ -173,15 +170,15 @@ recipes.addShaped(CableCamouflage * 2, [
 
 recipes.remove(DoubleSidedCableCamouflage);
 recipes.addShaped(DoubleSidedCableCamouflage * 2, [
-	[chamelium, emitterMV, chamelium],
+	[chamelium, emitterHV, chamelium],
 	[CableCamouflage, ducttape, CableCamouflage],
-	[chamelium, emitterMV, chamelium]]);
+	[chamelium, emitterHV, chamelium]]);
 
 recipes.remove(TransCableCamouflage);
 recipes.addShaped(TransCableCamouflage * 2, [
-	[circuitAdvanced, pistonMV, circuitAdvanced],
+	[circuitAdvanced, pistonHV, circuitAdvanced],
 	[DoubleSidedCableCamouflage, fieldGeneratorLV, DoubleSidedCableCamouflage],
-	[emitterMV, chamelium, emitterMV]]);
+	[emitterHV, chamelium, emitterHV]]);
 
 recipes.remove(SignUpdater);
 recipes.addShaped(SignUpdater, [
