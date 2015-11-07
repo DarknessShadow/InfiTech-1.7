@@ -30,17 +30,24 @@ val pistonMV                            = <gregtech:gt.metaitem.01:32641>;
 val pistonHV                            = <gregtech:gt.metaitem.01:32642>;
 val conveyorMV                          = <gregtech:gt.metaitem.01:32631>;
 val conveyorHV                          = <gregtech:gt.metaitem.01:32632>;
+val conveyorEV                          = <gregtech:gt.metaitem.01:32633>;
 val emitterMV                           = <gregtech:gt.metaitem.01:32681>;
 val sensorMV                            = <gregtech:gt.metaitem.01:32691>;
 val fieldGeneratorLV                    = <gregtech:gt.metaitem.01:32670>;
+val fieldGeneratorHV                    = <gregtech:gt.metaitem.01:32672>;
 val activityDetector                    = <gregtech:gt.metaitem.01:32731>;
+val itemDetector                        = <gregtech:gt.metaitem.01:32733>;
 val ducttape                            = <gregtech:gt.metaitem.01:32764>;
+val springNeodymiumMagnetic             = <ore:springNeodymiumMagnetic>;
 val sheetRubber                         = <ore:sheetRubber>;
 val plateRedstone                       = <ore:plateRedstone>;
 val plateAluminium                      = <ore:plateAluminium>;
 val plateStainlessSteel                 = <ore:plateStainlessSteel>;
 val plateSteel                          = <ore:plateSteel>;
 val plateEnderPearl                     = <ore:plateEnderPearl>;
+val plateSilicon                        = <ore:plateSilicon>;
+val plateDoubleChrome                   = <ore:plateDoubleChrome>;
+val plateQuintupleTungstenSteel         = <ore:plateQuintupleTungstenSteel>;
 val foilStainlessSteel                  = <ore:foilStainlessSteel>;
 val foilEnderium                        = <ore:foilEnderium>;
 val screwTungstenSteel                  = <ore:screwTungstenSteel>;
@@ -98,17 +105,17 @@ recipes.addShaped(InventoryCable * 3, [
 	[smartcable, smartcable, smartcable],
 	[sheetRubber, conveyorMV, sheetRubber]]);
 
-//recipes.remove(InventoryRelay);
-//recipes.addShaped(InventoryRelay, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(InventoryRelay);
+recipes.addShaped(InventoryRelay, [
+        [plateAluminium, pistonMV, plateAluminium],
+        [conveyorMV, InventoryCable, conveyorMV],
+        [plateSilicon, itemDetector, plateSilicon]]);
 
-//recipes.remove(AdvInventoryRelay);
-//recipes.addShaped(AdvInventoryRelay, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(AdvInventoryRelay);
+recipes.addShaped(AdvInventoryRelay, [
+        [plateDoubleChrome, conveyorEV, plateDoubleChrome],
+        [springNeodymiumMagnetic, InventoryRelay, springNeodymiumMagnetic],
+        [fieldGeneratorHV, plateQuintupleTungstenSteel, activityDetector]]);
 
 recipes.remove(RSEmitter);
 recipes.addShaped(RSEmitter, [
