@@ -24,13 +24,17 @@ val CreativeSupplier                    = <StevesFactoryManager:BlockCableCreati
 
 // gregtech + ic2
 val FullyChargedChargingLapotronCrystal = <IC2:itemBatChargeLamaCrystal:1>.onlyWithTag({charge: 4.0E7});
+val pumpMV                              = <gregtech:gt.metaitem.01:32611>;
 val pumpHV                              = <gregtech:gt.metaitem.01:32612>;
+val pistonMV                            = <gregtech:gt.metaitem.01:32641>;
 val pistonHV                            = <gregtech:gt.metaitem.01:32642>;
+val conveyorMV                          = <gregtech:gt.metaitem.01:32631>;
 val conveyorHV                          = <gregtech:gt.metaitem.01:32632>;
 val emitterMV                           = <gregtech:gt.metaitem.01:32681>;
 val sensorMV                            = <gregtech:gt.metaitem.01:32691>;
 val fieldGeneratorLV                    = <gregtech:gt.metaitem.01:32670>;
 val activityDetector                    = <gregtech:gt.metaitem.01:32731>;
+val ducttape                            = <gregtech:gt.metaitem.01:32764>;
 val sheetRubber                         = <ore:sheetRubber>;
 val plateRedstone                       = <ore:plateRedstone>;
 val plateAluminium                      = <ore:plateAluminium>;
@@ -51,12 +55,14 @@ var screwdriver                         = <ore:craftingToolScrewdriver>;
 var wrench                              = <ore:craftingToolWrench>;
 
 // opencomputers
-val hddT3                               = <OpenComputers:item:7>;
-val serverT3                            = <OpenComputers:item:40>;
-val cpuT3                               = <OpenComputers:item:43>;
+val computercaseT3                      = <OpenComputers:case3>;
+val hddT2                               = <OpenComputers:item:6>;
+val apuT2                               = <OpenComputers:item:102>;
 val redstoneCard                        = <OpenComputers:item:66>;
 val signUpgrade                         = <OpenComputers:item:35>;
-val serverRack                          = <OpenComputers:serverRack>;
+val networkcard                         = <OpenComputers:item:11>;
+val chamelium                           = <OpenComputers:item:96>;
+val chameliumBlock                      = <OpenComputers:chameliumBlock>;
 
 //
 val smartcable                          = <appliedenergistics2:item.ItemMultiPart:56>;
@@ -66,6 +72,10 @@ val scribingtool                        = <Thaumcraft:ItemInkwell>;
 val itemGrate                           = <Thaumcraft:blockMetalDevice:5>;
 val vacuumhopper                        = <OpenBlocks:vacuumhopper>;
 val paper                               = <minecraft:paper>;
+val dyeGreen                            = <ore:dyeGreen>;
+val dyeRed                              = <ore:dyeRed>;
+val dyeBlue                             = <ore:dyeBlue>;
+val dyeYellow                           = <ore:dyeYellow>;
 
 
 # Blocks/Items Removal
@@ -78,15 +88,15 @@ CreativeSupplier.addTooltip(format.red(format.bold("This item is DISABLED!")));
 recipes.remove(SteveManager);
 recipes.addShaped(SteveManager, [
 	[pumpHV, pistonHV, conveyorHV],
-	[hddT3, serverT3, cpuT3],
-	[FullyChargedChargingLapotronCrystal, serverRack, FullyChargedChargingLapotronCrystal]]);
+	[hddT2, computercaseT3, apuT2],
+	[FullyChargedChargingLapotronCrystal, networkcard, FullyChargedChargingLapotronCrystal]]);
 SteveManager.addTooltip(format.red("fully charged Charging Lapotron Crystal required"));
 
 recipes.remove(InventoryCable);
 recipes.addShaped(InventoryCable * 3, [
-	[sheetRubber, pumpHV, sheetRubber],
+	[sheetRubber, pumpMV, sheetRubber],
 	[smartcable, smartcable, smartcable],
-	[sheetRubber, conveyorHV, sheetRubber]]);
+	[sheetRubber, conveyorMV, sheetRubber]]);
 
 //recipes.remove(InventoryRelay);
 //recipes.addShaped(InventoryRelay, [
@@ -148,23 +158,23 @@ recipes.addShaped(AdvCableCluster, [
 	[fieldGeneratorLV, CableCluster, fieldGeneratorLV],
 	[foilEnderium, wrench, foilEnderium]]);
 
-//recipes.remove(CableCamouflage);
-//recipes.addShaped(CableCamouflage, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(CableCamouflage);
+recipes.addShaped(CableCamouflage * 2, [
+	[dyeGreen, fieldGeneratorLV, dyeRed],
+	[InventoryCable, chameliumBlock, InventoryCable],
+	[dyeBlue, circuitBasic, dyeYellow]]);
 
-//recipes.remove(DoubleSidedCableCamouflage);
-//recipes.addShaped(DoubleSidedCableCamouflage, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(DoubleSidedCableCamouflage);
+recipes.addShaped(DoubleSidedCableCamouflage * 2, [
+	[chamelium, emitterMV, chamelium],
+	[CableCamouflage, ducttape, CableCamouflage],
+	[chamelium, emitterMV, chamelium]]);
 
-//recipes.remove(TransCableCamouflage);
-//recipes.addShaped(TransCableCamouflage, [
-//	[null, null, null],
-//	[null, null, null],
-//	[null, null, null]]);
+recipes.remove(TransCableCamouflage);
+recipes.addShaped(TransCableCamouflage * 2, [
+	[circuitAdvanced, pistonMV, circuitAdvanced],
+	[DoubleSidedCableCamouflage, fieldGeneratorLV, DoubleSidedCableCamouflage],
+	[emitterMV, chamelium, emitterMV]]);
 
 recipes.remove(SignUpdater);
 recipes.addShaped(SignUpdater, [
