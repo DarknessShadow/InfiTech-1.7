@@ -1,6 +1,5 @@
 // --- Created by DarknessShadow ---
 
-
 # Aliases
 
 // Steves Factory Manager
